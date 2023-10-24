@@ -1,40 +1,62 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex16.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex16.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex16.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+
+using namespace std;
+
+struct Element {
+    public:
+        int nombre;
+        Element* next;
+
+        Element(int nombre) : nombre(nombre), next(nullptr) {}
+};
+
+class Liste {
+private:
+    Element* head;
+
+public:
+    Liste() : head(nullptr) {}
+
+    void ajouter(int num) {
+        Element* newnum = new Element(num);
+        newnum->nombre = num;
+        newnum->next = head;
+        head = newnum;
+    }
+
+    void supprimer() {
+        if (head != nullptr) {
+            Element* supprimer = head;
+            head = supprimer->next;
+            delete supprimer;
+        }
+    }
+
+    void afficher() {
+        Element* actuel = head;
+        while (actuel != nullptr) {
+            cout << actuel->nombre << " ";
+            actuel = actuel->next;
+        }
+    }
+};
+
+int main() {
+    Liste maListe;
+
+    maListe.ajouter(10);
+    maListe.ajouter(9);
+    maListe.ajouter(8);
+
+    cout << "Liste : ";
+    maListe.afficher();
+    cout << endl;
+
+    maListe.supprimer();
+
+    cout << "Liste apres suppression : ";
+    maListe.afficher();
+    cout << endl;
+
+    return 0;
+}
