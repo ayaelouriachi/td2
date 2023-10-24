@@ -1,40 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex15.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex15.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex15.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+
+class Fichier {
+   private:
+    char* P;
+    size_t longueur;  
+    
+   public:
+    Fichier(size_t longueur){
+        this->longueur=longueur;
+        P=new char[longueur];
+    }
+    ~Fichier(){
+        delete[] P;
+    }
+    void Creation(size_t longueur){
+        if(P)
+            delete []P;
+        this->longueur=longueur;
+        P= new char[longueur];
+    }
+    void Remplit(){
+        if(P){
+            cin.getline(P, longueur);
+        }else
+            cout<< "error";
+            exit(0);
+            
+    }
+    void Affiche(){
+        if (P == nullptr) 
+            cout << "Erreur " <<endl;
+        for (size_t i = 0; i < longueur; i++) {
+            cout << P[i];
+        }
+    }
+    
+};
+
+
+int main() {
+    size_t longueur = 10;  
+
+    
+    Fichier* fichier = new Fichier(longueur);
+    
+    fichier->Creation(longueur);
+    fichier->Remplit();
+    fichier->Affiche();
+
+    
+    delete fichier;
+
+    return 0;
+}
