@@ -1,40 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex14.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex14.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex14.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Pile {
+private:
+    vector<int> nombres;
+
+public:
+    Pile() {
+    }
+
+    void push(int n) {
+        nombres.push_back(n);
+    }
+
+    void pop() {
+        if (!nombres.empty()) {
+
+            nombres.pop_back();
+        }
+    }
+
+    void afficher() {
+        if (!nombres.empty()) {
+            cout << "element en haut de la pile : " << nombres.back() << endl;
+        } else {
+            cout << "La pile est vide." << endl;
+        }
+    }
+};
+
+int main() {
+    Pile pile1;
+    Pile pile2;
+
+    pile1.push(6);
+    pile1.push(11);
+    pile1.push(7);
+
+    pile2.push(14);
+    pile2.push(100);
+    pile2.push(99);
+
+    cout << "Pile 1 avant depilement : " << endl;
+    pile1.afficher();
+     cout << "Apres depilement de pile1 : " << endl;
+    pile1.pop();
+    pile1.afficher();
+
+    cout << "Pile 2 avant depilement : " << endl;
+    pile2.afficher();
+   cout << "Apres depilement de pile2 : " << endl;
+pile2.pop();
+pile2.afficher();
+
+
+    return 0;
+}
