@@ -1,40 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex3e1.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex3e1.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex3e1.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T[10];
+    int *P = T;
+    int min, max; 
+
+    cout << "Entrez 10 nombres : ";
+
+    for (int i = 0; i < 10; i++) {
+        cin >> *P;
+
+        if (i == 0) {
+           
+            min = *P;
+            max = *P;
+        } else {
+            if (*P > max) {
+                max = *P;
+            }
+            if (*P < min) {
+                min = *P;
+            }
+        }
+
+        P++;  
+    }
+
+    cout << "Le maximum est " << max << " et le minimum est " << min << endl;
+
+    return 0;
+}
+
