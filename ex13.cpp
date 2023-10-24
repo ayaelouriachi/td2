@@ -1,38 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex13.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex13.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex13.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions />
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+
+using namespace std;
+class Point {
+private: float x,y,z;
+public : Point(float a,float b,float c):x(a),y(b),z(c){};
+void deplace(float dx, float dy,float dz){
+ x+=dx;
+ y+=dy;
+ z+=dz;
+ }
+ void afficher(){
+ cout<<x<<endl<<y<<endl<<z<<endl;
+ }
+};
+int main()
+{
+  Point P(1,7,11);
+  P.afficher();
+  P.deplace(2,-1,2);
+  P.afficher();
+    return 0;
+}
+
