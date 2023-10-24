@@ -1,40 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex7.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex7.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex7.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+using namespace std;
+int main() {
+    int tableau[10];
+    int c;
+    int NE;
+
+    
+    for (int i = 0; i < 10; i++) {
+       cout << "Entrez un entier : ";
+  cin >> tableau[i];
+    }
+
+
+    do {
+        NE = 0;
+        for (int i = 0; i < 9; i++) {
+            if (tableau[i] > tableau[i + 1]) {
+
+                c = tableau[i];
+                tableau[i] = tableau[i + 1];
+                tableau[i + 1] = c;
+                NE++;
+            }
+        }
+    } while (NE> 0);
+
+
+   cout << "Tableau trie par ordre croissant : ";
+    for (int i = 0; i < 10; i++) {
+        cout << tableau[i] << " ";
+    }
+    cout <<endl;
+
+    return 0;
+}
