@@ -22,4 +22,5 @@ if(fonct2(x)==0){
          cout<<"il est divisible par 6"<<endl;
      }
 }
+ return 0;
 }
