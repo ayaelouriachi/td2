@@ -1,40 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex2.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex2.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex2.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+int fonct1(int n){
+  return n%3;
+}
+int fonct2(int n){
+    return n%2;
+}
+int main()
+{int x;
+ cout<<"donner un entier";
+ cin>>x;
+ if(fonct1(x)==0){
+ cout<<"il est multiple de 3";
+}
+if(fonct2(x)==0){
+    cout<<"il est pair"<<endl;
+     if(fonct1(x)==0){
+         cout<<"il est multiple de 3"<<endl;
+         cout<<"il est divisible par 6"<<endl;
+     }
+}
+}
