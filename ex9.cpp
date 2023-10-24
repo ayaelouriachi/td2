@@ -1,40 +1,76 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="ex9.cpp" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/ex9.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/ex9.cpp" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <iostream>
+using namespace std;
+
+class Animal {
+protected:
+    string nom;
+    int age;
+
+public:
+    void set_value(string n) {
+        nom = n;
+    }
+
+    void set_value(int a) {
+        age = a;
+    }
+};
+
+class Zebra : public Animal {
+private:
+    string origine;
+
+public:
+    Zebra(string a) : origine(a) {}
+
+    void afficherInfos(){
+        cout << "Nom de cet animal : " << nom << endl;
+        cout << "Age de cet animal : " << age << " ans" << endl;
+        cout << "Origine de cet animal : " << origine << endl;
+    }
+};
+
+class Dolphin : public Animal {
+private:
+    string origine;
+
+public:
+    Dolphin(string a) : origine(a) {}
+
+    void afficherInfos() {
+        cout << "Nom de cet animal : " << nom << endl;
+        cout << "Age de cet animal : " << age << " ans" << endl;
+        cout << "Origine de cet animal : " << origine << endl;
+    }
+};
+
+int main() {
+    string n, a, s, b;
+    int x, k;
+
+    cout << "Ecrire le nom de la zebre : ";
+    cin >> n;
+    cout << "L'age de la zebre : ";
+    cin >> x;
+    cout << "Ecrire l'origine de la zebre : ";
+    cin >> a;
+
+    Zebra z(a);
+    z.set_value(n);
+    z.set_value(x);
+    z.afficherInfos();
+
+    cout << "Ecrire le nom du dauphin : ";
+    cin >> s;
+    cout << "L'age du dauphin : ";
+    cin >> k;
+    cout << "Ecrire l'origine du dauphin : ";
+    cin >> b;
+
+    Dolphin D(b);
+    D.set_value(s);
+    D.set_value(k);
+    D.afficherInfos();
+
+    return 0;
+}
