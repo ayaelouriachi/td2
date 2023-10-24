@@ -11,6 +11,6 @@ int main()
  afficher();
  afficher();
    afficher();
-
+return 0;
 }
 
